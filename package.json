@@ -29,6 +29,10 @@
 ,   "htmlparser": "1.7.6"
 ,   "underscore.string": "~> 2.1.1"
 ,   "htmlparser": "~> 1.7.5"
-  }
+  },
+ "engines": {
+    "node": ">= 0.8.x",
+    "npm": "1.1.x"
+  },
 }
 
