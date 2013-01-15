@@ -26,4 +26,6 @@
 , "word-of-the-day.coffee"
 , "wordnik.coffee"
 , "xkcd.coffee"
+, "help.coffee"
+, "9gag.coffee"
 ]
