@@ -3,7 +3,7 @@ Hubot
 
 This is a version of GitHub's Campfire bot, hubot. He's pretty cool.
 
-This version is designed to be deployed on heroku.
+This version is designed to be deployed on heroku, with party chat hooks
 
 Playing with Hubot
 ==================
@@ -71,23 +71,14 @@ You'll need to edit the `Procfile` to say what the bot's name is.
 Hubot also needs three environmental variables set to run and to keep him
 running on heroku.
 
-Campfire Variables
+PartyChat hooks Variables
 ------------------
 
-Create a separate user for your bot and get their token from the web UI.
+Just one variable is required for hubot and partychat hooks and that is
 
-    % heroku config:add HUBOT_CAMPFIRE_TOKEN="..."
+HUBOT_POST_ENDPOINT
 
-Get the numeric ids of the rooms you want the bot to join, comma
-delimited. If you want the bot to connect to `https://mysubdomain.campfirenow.com/room/42` 
-and `https://mysubdomain.campfirenow.com/room/1024` then you'd add it like this:
-
-    % heroku config:add HUBOT_CAMPFIRE_ROOMS="42,1024"
-
-Add the subdomain hubot should connect to. If you web URL looks like
-`http://mysubdomain.campfirenow.com` then you'd add it like this:
-
-    % heroku config:add HUBOT_CAMPFIRE_ACCOUNT="mysubdomain"
+This should look something like http://partychat-hooks.appspot.com/post/someid
 
 Restart the bot
 ---------------
