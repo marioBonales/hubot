@@ -41,6 +41,7 @@ module.exports = (robot) ->
     unless name in ['who', 'what', 'where', 'when', 'why']
       unless newRole.match(/^not\s+/i)
         users = robot.usersForFuzzyName(name)
+        sender = robot.usersForFuzzyName(msg.message.user.name)[0]
         if users.length is 1
           user = users[0]
           user.roles = user.roles or [ ]
@@ -48,11 +49,16 @@ module.exports = (robot) ->
           if newRole in user.roles
             msg.send "I know"
           else
-            user.roles.push(newRole)
-            if name.toLowerCase() is robot.name
-              msg.send "Ok, I am #{newRole}."
+            if newRole.match /.*gay.*/i
+              sender.roles.push(newRole)
+              msg.send "I think you have problems, so let's say you are #{newRole} "
+              msg.send "Ok, #{sender.name} is #{newRole}."
             else
-              msg.send "Ok, #{name} is #{newRole}."
+              user.roles.push(newRole)
+              if name.toLowerCase() is robot.name
+                msg.send "Ok, I am #{newRole}."
+              else
+                msg.send "Ok, #{name} is #{newRole}."
         else if users.length > 1
           msg.send getAmbiguousUserText users
         else
