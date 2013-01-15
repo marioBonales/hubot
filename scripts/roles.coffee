@@ -70,12 +70,15 @@ module.exports = (robot) ->
 
     unless name in ['who', 'what', 'where', 'when', 'why']
       users = robot.usersForFuzzyName(name)
+      sender = robot.usersForFuzzyName(msg.message.user.name)[0]
       if users.length is 1
         user = users[0]
         user.roles = user.roles or [ ]
 
         if newRole not in user.roles
           msg.send "I know."
+        else if newRole.match(/.*gay.*/i) and sender.name.toLowerCase() == name.toLowerCase()
+          msg.send "Can't let you do that, #{sender.name}"
         else
           user.roles = (role for role in user.roles when role isnt newRole)
           msg.send "Ok, #{name} is no longer #{newRole}."
