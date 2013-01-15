@@ -21,12 +21,8 @@
 , "travis.coffee"
 , "uptime.coffee"
 , "weather.coffee"
-, "webshot.coffee"
 , "wikipedia.coffee"
 , "word-of-the-day.coffee"
 , "wordnik.coffee"
 , "xkcd.coffee"
-, "help.coffee"
-, "9gag.coffee"
-, "reddit.coffee"
 ]
