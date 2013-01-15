@@ -28,4 +28,5 @@
 , "xkcd.coffee"
 , "help.coffee"
 , "9gag.coffee"
+, "reddit.coffee"
 ]
